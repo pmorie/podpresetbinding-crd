@@ -17,6 +17,8 @@ limitations under the License.
 package scheme
 
 import (
+	"fmt"
+
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/schema"
@@ -30,6 +32,7 @@ type Builder struct {
 
 // Register adds one or objects to the SchemeBuilder so they can be added to a Scheme.  Register mutates bld.
 func (bld *Builder) Register(object ...runtime.Object) *Builder {
+	fmt.Printf("JPEELER: registering %#v\n", bld)
 	bld.SchemeBuilder.Register(func(scheme *runtime.Scheme) error {
 		scheme.AddKnownTypes(bld.GroupVersion, object...)
 		metav1.AddToGroupVersion(scheme, bld.GroupVersion)

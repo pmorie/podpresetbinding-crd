@@ -5,7 +5,7 @@ IMG ?= controller:latest
 all: test manager
 
 # Run tests
-test: generate fmt vet manifests
+test: fmt vet manifests
 	go test ./pkg/... ./cmd/... -coverprofile cover.out
 
 # Build manager binary
@@ -13,7 +13,7 @@ manager: generate fmt vet
 	go build -o bin/manager github.com/jpeeler/podpresetbinding-crd/cmd/manager
 
 # Run against the configured Kubernetes cluster in ~/.kube/config
-run: generate fmt vet
+run: fmt vet
 	go run ./cmd/manager/main.go
 
 # Install CRDs into a cluster
