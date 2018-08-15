@@ -23,7 +23,7 @@ import (
 
 	"github.com/jpeeler/podpresetbinding-crd/pkg/apis"
 	//servicecatalogv1beta1 "github.com/kubernetes-incubator/service-catalog/pkg/apis/servicecatalog/v1beta1"
-	//servicecataloginstall "github.com/kubernetes-incubator/service-catalog/pkg/apis/servicecatalog/install"
+	servicecataloginstall "github.com/kubernetes-incubator/service-catalog/pkg/apis/servicecatalog/install"
 	"github.com/onsi/gomega"
 	"k8s.io/client-go/kubernetes/scheme"
 	"k8s.io/client-go/rest"
@@ -40,7 +40,7 @@ func TestMain(m *testing.M) {
 	}
 	apis.AddToScheme(scheme.Scheme)
 	//servicecatalogv1beta1.AddToScheme(scheme.Scheme)
-	//servicecataloginstall.Install(scheme.Scheme)
+	servicecataloginstall.Install(scheme.Scheme)
 
 	var err error
 	if cfg, err = t.Start(); err != nil {

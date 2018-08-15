@@ -15,9 +15,12 @@ limitations under the License.
 
 package apis
 
-//"github.com/jpeeler/podpresetbinding-crd/pkg/apis/podpreset/v1alpha1"
+import (
+	//"github.com/jpeeler/podpresetbinding-crd/pkg/apis/podpreset/v1alpha1"
+	servicecatalogv1beta1 "github.com/kubernetes-incubator/service-catalog/pkg/apis/servicecatalog/v1beta1"
+)
 
 func init() {
 	// Register the types with the Scheme so the components can map objects to GroupVersionKinds and back
-	//AddToSchemes = append(AddToSchemes, servicecatalogv1beta1.AddToScheme)
+	AddToSchemes = append(AddToSchemes, servicecatalogv1beta1.AddToScheme)
 }

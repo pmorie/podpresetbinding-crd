@@ -22,7 +22,7 @@ import (
 	"github.com/golang/glog"
 	"github.com/jpeeler/podpresetbinding-crd/pkg/apis"
 	"github.com/jpeeler/podpresetbinding-crd/pkg/controller"
-	//servicecataloginstall "github.com/kubernetes-incubator/service-catalog/pkg/apis/servicecatalog/install"
+	servicecataloginstall "github.com/kubernetes-incubator/service-catalog/pkg/apis/servicecatalog/install"
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp"
 	"sigs.k8s.io/controller-runtime/pkg/client/config"
 	"sigs.k8s.io/controller-runtime/pkg/manager"
@@ -50,7 +50,7 @@ func main() {
 	if err := apis.AddToScheme(mgr.GetScheme()); err != nil {
 		log.Fatal(err)
 	}
-	//servicecataloginstall.Install(mgr.GetScheme())
+	servicecataloginstall.Install(mgr.GetScheme())
 
 	// Setup all Controllers
 	if err := controller.AddToManager(mgr); err != nil {
